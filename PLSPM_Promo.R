@@ -216,6 +216,9 @@ for(category in   list_of_categories){
       cat("+++++++++++++++++++++++++++++++++++++++++++___",best_quantile_w)
       temp <- get_hist_data (myConn,  client,prod_id,best_quantile_w,quantile_p)
       temp$best_quantile_w<- best_quantile_w
+	  temp$best_quantile_w<- temp$best_quantile_w/100 
+      temp$treshold_weight <- temp$median_weight+(temp$median_weight*temp$best_quantile_w)
+      temp$treshold_price <- temp$median_price * 0.9
       temp$client<- client
       cat("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TEMP!!!!!!!!!!!")
       print((head(temp)))
